@@ -1,10 +1,10 @@
 use Mix.Config
 
+config :friends, :ecto_adapter, Ecto.Adapters.Postgres
+
 config :friends, Friends.Repo,
-  adapter: Ecto.Adapters.Postgres,
+  adapter: Application.get_env(:friends, :ecto_adapter),
   database: "friends_prod",
   username: "tensho",
   password: "",
   hostname: "localhost"
-
-config :friends, ecto_repos: [Friends.Repo]

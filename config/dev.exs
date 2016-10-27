@@ -1,10 +1,9 @@
 use Mix.Config
 
-config :friends, Friends.Repo,
-  adapter: Ecto.Adapters.Postgres,
-  database: "friends_dev",
-  username: "tensho",
-  password: "",
-  hostname: "localhost"
+config :friends, :ecto_adapter, Sqlite.Ecto
 
-config :friends, ecto_repos: [Friends.Repo]
+config :friends, Friends.Repo,
+  adapter: Application.get_env(:friends, :ecto_adapter),
+  database: "test/friends_dev.sqlite3",
+  size: 1,
+  max_overflow: 0
