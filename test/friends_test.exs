@@ -5,13 +5,13 @@ defmodule FriendsTest do
 
   @opts Friends.Router.init([])
 
-  test "returns people names" do
-    conn = conn(:get, "/hello")
+  test "returns URL path as a response body" do
+    conn = conn(:get, "/shimeji")
 
     conn = Friends.Router.call(conn, @opts)
 
     assert conn.state == :sent
     assert conn.status == 200
-    assert conn.resp_body == "abc"
+    assert conn.resp_body == "shimeji"
   end
 end

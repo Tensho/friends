@@ -15,17 +15,9 @@ defmodule Friends.Mixfile do
   # Type "mix help compile.app" for more information
   def application do
     [
-      applications: other_applications,
+      applications: [:logger, :cowboy, :plug],
       mod: {Friends, []}
     ]
-  end
-
-  def other_applications do
-    case Mix.env do
-      :dev  -> [:logger, :sqlite_ecto, :ecto, :cowboy, :plug]
-      :test -> [:logger, :sqlite_ecto, :ecto, :cowboy, :plug]
-      :prod -> [:logger, :postgrex, :ecto, :cowboy, :plug]
-    end
   end
 
   # Dependencies can be Hex packages:
@@ -40,10 +32,7 @@ defmodule Friends.Mixfile do
   defp deps do
     [
       {:cowboy,      "~> 1.0.4"},
-      {:plug,        "~> 1.1.0"},
-      {:ecto,        "~> 0.11"},
-      {:sqlite_ecto, "0.0.2", only: [:dev, :test]},
-      {:postgrex,    ">= 0.0.0", only: :prod}
+      {:plug,        "~> 1.2.2"}
     ]
   end
 end
