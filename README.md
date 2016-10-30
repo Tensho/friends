@@ -1,6 +1,6 @@
 # Friends
 
-## TODO
+## WTF
 
 * Still can't compile esqlite
 

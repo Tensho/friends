@@ -6,10 +6,10 @@ defmodule WelcomePlugTest do
 
   test "returns response body prepended with \"Welcome to\"" do
     conn = conn(:get, "/")
-    conn = resp(conn, 200, "some response from other plugs")
-
     conn = WelcomePlug.call(conn, @opts)
+    conn = send_resp(conn, 200, "some response from other plugs")
 
+    assert conn.state == :sent
     assert conn.status == 200
     assert conn.resp_body == "Welcome to some response from other plugs"
   end
