@@ -1,6 +1,6 @@
 machine:
   post:
-    - apt-get install elixir
+    - sudo apt-get install elixir
 
 test:
   override:
