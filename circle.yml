@@ -1,5 +1,5 @@
-dependencies:
-  pre:
+machine:
+  post:
     - apt-get install elixir
 
 test:
