@@ -1,5 +1,9 @@
 # Friends
 
+## TODO
+
+* Setup CircleCI to run test
+
 ## WTF
 
 * Still can't compile esqlite
